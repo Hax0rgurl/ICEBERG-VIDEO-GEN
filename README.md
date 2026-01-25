@@ -1,8 +1,32 @@
-# Odyssey Iceberg Generator
+# Iceberg Maker & Video Generator
 
-This tool researches a topic on Wikipedia and uses the Odyssey Video Agent to generate a 5-minute narrated "Iceberg" video.
+A premium web-based tool to generate deep-dive "Iceberg" charts and automatic videos. 
 
-## Setup
+![Iceberg Maker UI](file:///Users/muse/.gemini/antigravity/brain/cef99a1b-f0f4-46d7-a107-5850d3857712/repo_contents_1769376808917.png)
+
+## 🚀 Features
+
+- **AI-Powered Research**: Dynamically research any topic and organize facts into levels.
+- **Manual Image Generation**: Edit prompts and generate images for each fact individually using "Nano Banana".
+- **Video Synthesis**: Automatically create a 5-minute narrated video summarizing the iceberg.
+- **Premium UI**: Modern, glassmorphism-inspired design with multi-language support.
+
+## 🛠 Model Configuration
+
+This project uses high-performance AI models for different tasks:
+
+### Core Models (Gemini Required)
+- **Text Generation**: `gemini-2.5-flash` - Used to research and organize facts.
+- **Image Generation**: `gemini-2.5-flash-image` (Nano Banana) - Used for photorealistic fact images.
+
+> [!NOTE]
+> If using **Gemini**, only one `GEMINI_API_KEY` is needed for both text and photo generation.
+> If you choose to integrate other local models (e.g., via **Ollama**), you may need separate configurations for text/image endpoints.
+
+### Video Generation (Odyssey Required)
+- **Video Production**: `Odyssey Video Agent` - Used to synthesize the final video.
+
+## ⚙️ Setup
 
 1. **Install Dependencies**
    ```bash
@@ -10,26 +34,31 @@ This tool researches a topic on Wikipedia and uses the Odyssey Video Agent to ge
    ```
 
 2. **Environment Configuration**
-   Create a `.env` file in the root directory and add your Odyssey API Key:
+   Create a `.env` file in the root directory:
    ```env
-   ODYSSEY_API_KEY=your_key_here
+   # Gemini API Key (Text & Images)
+   GEMINI_API_KEY=your_gemini_api_key
+
+   # Odyssey API Key (Videos)
+   ODYSSEY_API_KEY=your_odyssey_api_key
    ```
 
-## Usage
+3. **Start the Server**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:3000` in your browser.
 
-Run the application:
-```bash
-npm start
-```
+## 📖 Usage
 
-Follow the CLI prompts:
-1. Enter a topic (e.g., "The Matrix", "Super Mario 64").
-2. (Optional) Provide a path to an image file (e.g., an iceberg chart) to display at the start.
-3. Wait for the research and video generation to complete.
+1. **Enter a Topic**: Type your topic in the input field (e.g., "History of Video Games").
+2. **Generate Iceberg**: Click "Generate Iceberg" to research the text.
+3. **Generate Photos**: Click on a fact to open its details. Edit the prompt if desired and click "Generate Photo" for that specific section.
+4. **Download / Make Video**: Download your full research as a ZIP or trigger the video generation.
 
-The final video URL will be displayed in the console.
+## 📂 Structure
 
-## Structure
-- `src/researcher.ts`: Fetches and organizes data from Wikipedia.
-- `src/director.ts`: Generates the script and interfaces with Odyssey API.
-- `src/index.ts`: CLI entry point.
+- `/icebergmaker`: Frontend web application (HTML/CSS/JS).
+- `/src/server.ts`: Express server and API endpoints.
+- `/src/iceberg_generator.ts`: Interface for Gemini (Text & Image generation).
+- `/src/director.ts`: Interface for Odyssey Video Agent.
