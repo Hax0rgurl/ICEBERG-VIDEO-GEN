@@ -1,0 +1,98 @@
+<html>
+<head>
+  <base href=".">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creador de Iceberg</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="games-dropdown">
+    <button class="games-btn">💎 See my other games</button>
+    <div class="games-list">
+      <a href="https://ringcamhorror.on.websim.com/" target="_blank">Ring Cam Horror</a>
+      <a href="https://runforestrun.on.websim.com/" target="_blank">Run Forest Run</a>
+      <a href="https://iceberg2.on.websim.com/" target="_blank">Iceberg 2</a>
+      <a href="https://cyberpunk.on.websim.com" target="_blank">Cyberpunk</a>
+      <a href="https://asciivid.on.websim.com" target="_blank">ASCII Vid</a>
+    </div>
+  </div>
+  <div class="language-selector">
+    <button class="language-menu-btn">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <div class="language-list">
+      <a href="index.html" title="English">🇬🇧</a>
+      <a href="index_es.html" title="Spanish">🇪🇸</a>
+      <a href="index_fr.html" title="French">🇫🇷</a>
+      <a href="index_de.html" title="German">🇩🇪</a>
+      <a href="index_it.html" title="Italian">🇮🇹</a>
+      <a href="index_pt.html" title="Portuguese">🇧🇷</a>
+      <a href="index_ru.html" title="Russian">🇷🇺</a>
+      <a href="index_uk.html" title="Ukrainian">🇺🇦</a>
+      <a href="index_ar.html" title="Arabic">🇸🇦</a>
+      <a href="index_hi.html" title="Hindi">🇮🇳</a>
+      <a href="index_bn.html" title="Bengali">🇧🇩</a>
+      <a href="index_ta.html" title="Tamil">🇱🇰</a>
+      <a href="index_zh.html" title="Chinese">🇨🇳</a>
+      <a href="index_ja.html" title="Japanese">🇯🇵</a>
+      <a href="index_ko.html" title="Korean">🇰🇷</a>
+      <a href="index_vi.html" title="Vietnamese">🇻🇳</a>
+      <a href="index_sw.html" title="Swahili">🇹🇿</a>
+      <a href="index_zu.html" title="Zulu">🇿🇦</a>
+      <a href="index_el.html" title="Greek">🇬🇷</a>
+      <a href="index_nl.html" title="Dutch">🇳🇱</a>
+    </div>
+  </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Creador de Iceberg</h1>
+    <p>Personaliza tu gráfico de iceberg:</p>
+    <div class="controls">
+      <div class="topic-selector">
+        <label>Tipo de Tema:</label>
+        <select id="topicType">
+          <option value="custom">Personalizado</option>
+          <option value="mystery">Misterio</option>
+          <option value="danger">Peligro</option>
+        </select>
+      </div>
+      <div class="level-selector">
+        <label>Número de Niveles:</label>
+        <input type="number" id="levelCount" min="3" value="5">
+      </div>
+      <div class="option-selector">
+        <label>
+          <input type="checkbox" id="noImagesToggle"> Sin imágenes (Más rápido)
+        </label>
+      </div>
+    </div>
+    <div class="button-group">
+      <input type="text" id="categoryInput" placeholder="Introduce tu tema...">
+      <button id="generateBtn" class="action-button">Generar</button>
+      <button id="downloadBtn" class="action-button">Descargar Todo</button>
+      <button id="tipBtn" class="action-button">🪙 Propinas</button>
+      <a href="instructions.html" class="action-button">ℹ️ Instrucciones</a>
+    </div>
+    <div id="tipsContainer" class="tips-container"></div>
+    <div id="progressBarContainer" class="progress-bar">
+      <div id="progressBar" class="progress"></div>
+    </div>
+    <div id="icebergChart" class="iceberg-chart"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+  <script type="module" src="scripts.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "jszip": "https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm"
+    }
+  }
+  </script>
+</body>
+</html>
